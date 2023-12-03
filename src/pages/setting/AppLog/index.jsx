@@ -18,6 +18,7 @@ import LogHighlight from "@/components/LogHighlight/LogHighlight";
 import { spacing } from "@mui/system";
 import { useLocation } from "react-router-dom";
 
+const Divider = styled(MuiDivider)(spacing);
 
 const AppLog = () => {
     const LogHighlightRef = useRef(null);
@@ -63,14 +64,7 @@ const AppLog = () => {
 
     useEffect(() => {
         if (isAutoScroll && LogHighlightRef.current) {
-            LogHighlightRef.current.scrollToIndex(logs.length, {
-                smoothScroll: false,
-            })
-            // 猜测是因为虚拟滚动高度计算未完成 导致滚动不到底部
-            // 无法识别到计算完成的事件 暴力解决 1s 后再滚动一次
-            setTimeout(() => {
-                LogHighlightRef.current.scrollToIndex(logs.length - 1)
-            }, 1000)
+            LogHighlightRef.current.scrollToIndex(logs.length)
         }
     }, [isAutoScroll, logs.length])
 
@@ -85,7 +79,6 @@ const AppLog = () => {
         }
     }, [logFiles])
 
-    const Divider = styled(MuiDivider)(spacing);
     return (<Box display={"flex"} flexDirection={"column"} sx={{ width: '100%', height: '100%' }}>
         <Helmet title="应用运行日志" />
         <Grid container direction={{ xs: "column", sm: 'row', md: 'row' }} justifyContent="space-between" mb={{ xs: 0 }} >
