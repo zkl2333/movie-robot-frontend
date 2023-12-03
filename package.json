@@ -40,7 +40,6 @@
     "@mui/system": "5.2.4",
     "@mui/x-data-grid": "5.2.1",
     "@reduxjs/toolkit": "1.7.1",
-    "@tanstack/react-virtual": "^3.0.0",
     "@vitejs/plugin-react": "^4.1.1",
     "amazon-cognito-identity-js": "5.2.3",
     "axios": "0.24.0",

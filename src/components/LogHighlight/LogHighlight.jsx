@@ -69,7 +69,7 @@ function LogHighlight({
     ))
 
     // 估算
-    const estimateSize = 40;
+    const estimateSize = 20;
     const sizes = useRef({}).current;
 
     // 根据索引获取Item的尺寸
@@ -78,7 +78,7 @@ function LogHighlight({
             if (sizes[index]) {
                 return sizes[index];
             }
-            return 0;
+            return estimateSize;
         },
         [sizes]
     );
